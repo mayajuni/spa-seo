@@ -1,0 +1,30 @@
+{
+  "name": "spa-seo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": ""
+  },
+  "keywords": [
+    "seo",
+    "crawling",
+    "angular seo",
+    "spa seo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mayajuni/spa-seo"
+  },
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.7"
+  },
+  "license":  [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 4.0"
+  }
+}
