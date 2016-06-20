@@ -8,13 +8,12 @@ const fs = require("fs");
 const childProcess = require('child_process');
 const phantomjs = require('phantomjs-prebuilt');
 
-const binPath = phantomjs.path;
-
 class Spaseo {
-    constructor(port, fileDirectory, protocol) {
+    constructor(port, fileDirectory) {
+        this.binPath = phantomjs.path;
         this.port = port | 9999;
         this.fileDirectory = fileDirectory ? fileDirectory : path.join(__dirname, 'files');
-        this.protocol = protocol ? protocol : 'http';
+        this.protocol = 'http';
         this.mkdir();
     }
 
@@ -28,6 +27,9 @@ class Spaseo {
         http.createServer((req, res)=> {
             res.writeHead(200, {'Content-Type': 'text/html'});
             const params = Url.parse(req.url,true);
+            if(req.headers['x-forwarded-proto']) {
+                this.protocol = req.headers['x-forwarded-proto'];
+            }
             let url = req.headers.host+req.url;
             if(params.query.url) {
                 url = params.query.url.replace('http://', '').replace('https://', '');
@@ -49,7 +51,7 @@ class Spaseo {
                     path.join(__dirname, 'src', 'crawling.js'),
                     `${this.protocol}://${url}`
                 ];
-                childProcess.execFile(`${binPath}`, childArgs, (err, stdout) => {
+                childProcess.execFile(`${this.binPath}`, childArgs, (err, stdout) => {
                     if(stdout){
                         if(!(stdout === 'bad_network' || stdout === 'need_url' || stdout === 'timeout')) {
                             fs.writeFileSync(htmlFilePath, stdout, 'utf8');
@@ -67,4 +69,4 @@ class Spaseo {
     }
 }
 
-exports.Spaseo = Spaseo;
+module.exports = Spaseo;
