@@ -43,15 +43,16 @@ $ sudo apt-get install libfontconfig
 server {
 	...
     location / {
-    	set $rot = 0
+    	set $rot 0;
     	if ($http_user_agent ~* "baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
-            set $rot = 1;
+            set $rot 1;
         }
          if ($args ~ "_escaped_fragment_") {
             set $rot 1;
         }
 
-        if($rot = 1) {
+		# rot 일때
+        if ($rot = 1) {
         	proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header Host $http_host;
@@ -59,8 +60,11 @@ server {
             # 아래의 것을 안넣어주면 기본 protocol을 http로 설정됩니다.
             proxy_set_header X-Forwarded-Proto $scheme;
 
-            proxy_pass http://127.0.0.1:9999/;
-            proxy_redirect off;
+            proxy_pass http://localhost:9999/;
+        }
+        # rot이 아닐시
+        if ($rot = 0) {
+        	...
         }
         ...
     }
