@@ -8,11 +8,12 @@
 
 ##설치
 현재 개발 및 테스트 진행중입니다. 아직 npm 사용을 못합니다.
+
 1. spa-seo 설치
 ```javascript
 $ npm install spa-seo
 ```
-2. CentOd
+2. CentOs
 ```javascript
 $ sudo yum install fontconfig
 ```
