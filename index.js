@@ -13,8 +13,8 @@ const binPath = phantomjs.path;
 class Spaseo {
     constructor(port, fileDirectory, protocol) {
         this.port = port | 9999;
-        this.fileDirectory = fileDirectory | path.join(__dirname, 'files');
-        this.protocol = protocol | 'http';
+        this.fileDirectory = fileDirectory ? fileDirectory : path.join(__dirname, 'files');
+        this.protocol = protocol ? protocol : 'http';
         this.mkdir();
     }
 
@@ -62,7 +62,7 @@ class Spaseo {
                 });
             }
         }).listen(this.port, () => {
-            console.log(`Start server ${port}`);
+            console.log(`Start server ${this.port}`);
         });
     }
 }
