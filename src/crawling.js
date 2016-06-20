@@ -12,13 +12,17 @@ if (system.args.length === 1) {
 var url = system.args[1];
 page.settings.loadImages = false;
 page.settings.localToRemoteUrlAccessEnabled = true;
+page.settings.resourceTimeout = 5000;
 
-page.open(url, function(status) {
+page.onResourceTimeout = function(e) {
+    console.log('timeout');
+    phantom.exit(1);
+};
+page.open(url, function (status) {
     if (status !== 'success') {
         console.log('bad_network');
     } else {
-        var content = page.content;
-        console.log(content);
+        console.log(page.content);
     }
     phantom.exit();
 });
