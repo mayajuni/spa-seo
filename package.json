@@ -1,6 +1,6 @@
 {
   "name": "spa-seo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Single Page App SER",
   "main": "index.js",
   "scripts": {

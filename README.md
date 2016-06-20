@@ -38,7 +38,7 @@ server {
 	...
     location / {
     	set $rot 0;
-    	if ($http_user_agent ~* "baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
+    	if ($http_user_agent ~* "Googlebot|cowbot|yeti|empas|MSNBot|daumoa|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator") {
             set $rot 1;
         }
          if ($args ~ "_escaped_fragment_") {
