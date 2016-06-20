@@ -1,5 +1,5 @@
 #spa-seo (parameter validation set)
- 싱글페이지 어플리케이션에서 SEO에 대한 이슈를 처리하기 위해 많들었습니다. bot이 접속을 하면 웹서버에서 체크를 한 후 프록시 서버로 연결해주는 방식을 체택했습니다. 현재 개발 및 테스트 진행중입니다.
+ 싱글페이지 어플리케이션에서 SEO에 대한 이슈를 처리하기 위해 많들었습니다. bot이 접속을 하면 웹서버에서 체크를 한 후 프록시 서버로 연결해주는 방식을 체택했습니다.
 
 ![](https://github.com/mayajuni/spa-seo/blob/master/img.PNG?raw=true)
 
@@ -7,8 +7,6 @@
 1. phantomjs-prebuilt : https://github.com/Medium/phantomjs
 
 ##설치
-현재 개발 및 테스트 진행중입니다. 아직 npm 사용을 못합니다.
-
 1. spa-seo 설치
 ```javascript
 $ npm install spa-seo
