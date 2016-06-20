@@ -51,7 +51,7 @@ class Spaseo {
                     path.join(__dirname, 'src', 'crawling.js'),
                     `${this.protocol}://${url}`
                 ];
-                childProcess.execFile(`${this.binPath}`, childArgs, (err, stdout) => {
+                childProcess.execFile(this.binPath, childArgs, (err, stdout) => {
                     if(stdout){
                         if(!(stdout === 'bad_network' || stdout === 'need_url' || stdout === 'timeout')) {
                             fs.writeFileSync(htmlFilePath, stdout, 'utf8');

@@ -12,6 +12,20 @@
 $ npm install spa-seo
 ```
 
+##오류시 설치
+```
+error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory
+```
+위와 같은 오류가 오류가 발생시 아래의 패키지를 설치한다.
+1. CentOd
+```javascript
+$ sudo yum install fontconfig
+```
+2. Ubuntu
+```javascript
+$ sudo apt-get install libfontconfig
+```
+
 ##설명
 	1. Bot 접속
 	2. Nginx혹은 apache에서 bot인지 체크 후 Seo Server 연결
@@ -76,11 +90,3 @@ pm2 start server.js
 or
 forever start server.js
 ```
-
-
-
-
-
-
-
-
