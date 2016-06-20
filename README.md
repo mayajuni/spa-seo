@@ -8,20 +8,15 @@
 
 ##설치
 현재 개발 및 테스트 진행중입니다. 아직 npm 사용을 못합니다.
+1. spa-seo 설치
 ```javascript
 $ npm install spa-seo
 ```
-
-##오류시 설치
-```
-error while loading shared libraries: libfontconfig.so.1: cannot open shared object file: No such file or directory
-```
-위와 같은 오류가 오류가 발생시 아래의 패키지를 설치한다.
-1. CentOd
+2. CentOd
 ```javascript
 $ sudo yum install fontconfig
 ```
-2. Ubuntu
+3. Ubuntu
 ```javascript
 $ sudo apt-get install libfontconfig
 ```
