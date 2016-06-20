@@ -25,6 +25,9 @@ $ sudo apt-get install libfontconfig
 	2. Nginx혹은 apache에서 bot인지 체크 후 Seo Server 연결
 	3. 해당 url이 html 파일로 있을시, html 파일 리턴, 없을시 팬텀Js를 이용하여 리턴 및 파일 생성
 
+##생성된 html 초기화
+등록된(저장된) html 디렉토리를 삭제해주시면 됩니다. 초만간 일자별로 삭제 하는걸 추가해 놓겠습니다.
+
 ##설정
 ####1. Paramter
 | 구분  | 설명 | 비고|
